@@ -1,9 +1,10 @@
 # setthings
+
 Fluent settings management
 
 ```javascript
 const set = require('setthings').set
-const things = require('setthings').settings
+const settings = require('setthings').settings
 const assert = require('assert')
 
 // a setting sitting at the top
