@@ -1,26 +1,38 @@
 # setthings
 
-Fluent settings management
+Pseudo-Fluent Settings Management for the Simple Minded
 
 ```javascript
 const set = require('setthings').set
 const settings = require('setthings').settings
-const assert = require('assert')
 
-// a setting sitting at the top
+// simply use the dot as you would in javascript
 set('name', 'Alice') 
-assert(settings.name === 'Alice')
-
-// something further down
 set('book.title', 'Through the Looking Glass')
-assert(settings.book.title === 'Through the Looking Glass')
-
-// even further down
-set('down.the.rabbit.hole', 'Wonderland')
-assert(settings.down.the.rabbit.hole === 'Wonderland')
-
-// and an additional item on the second level
 set('book.author', 'Lewis Carroll')
-assert(settings.book.author === 'Lewis Carroll')
+set('down.the.rabbit.hole', 'Wonderland')
+
+// and get it all as a object
+console.dir(settings)
 ```
+
+You can also merge a given object with default one - this can be useful when you need to make sure an passed option object has all needed properties:
+
+```javascript
+const merge = require('settings').merge
+
+// default options
+let defaultOptions = { order:'ASC', limit:-1 }
+
+// incomplete options
+let given  = { order:'DESC' }
+
+// merge
+merge(given, defaultOptions)
+
+// given now contains all fields the default has
+console.log(given)
+
+
+
 

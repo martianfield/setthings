@@ -3,7 +3,7 @@ const should = require('chai').should()
 const set = require(__dirname + '/../index.js').set
 const settings = require(__dirname + '/../index.js').settings
 
-describe('All', () => {
+describe('Settings', () => {
 
   it("One level", () => {
     // arrange / act
